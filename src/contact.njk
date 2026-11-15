@@ -1,0 +1,91 @@
+---
+layout: layouts/base.njk
+permalink: /contact/
+title: Contact Us
+description: "Contact Community Baptist Church of West Covina in Baldwin Park, CA. Send a question or a prayer request, call the church, or get directions."
+hero:
+  eyebrow: We Would Love to Hear From You
+  title: Contact Us
+  intro: Have a question, a prayer request, or want to plan a visit? Send us a note and someone from the church will get back to you.
+---
+<section class="section section-tight">
+  <div class="container contact-grid">
+    <div class="contact-cards">
+      <div class="contact-card reveal">
+        <span class="feature-icon">{% icon "map-pin" %}</span>
+        <div>
+          <h3>Visit</h3>
+          <p>{{ church.address.street }}<br>{{ church.address.city }}, {{ church.address.state }} {{ church.address.zip }}</p>
+          <p><a href="https://www.google.com/maps/dir/?api=1&destination={{ church.address | mapsQuery }}" target="_blank" rel="noopener">Get directions</a></p>
+        </div>
+      </div>
+      {%- if church.phone %}
+      <div class="contact-card reveal">
+        <span class="feature-icon">{% icon "phone" %}</span>
+        <div>
+          <h3>Call</h3>
+          <p><a href="{{ church.phone | telHref }}">{{ church.phone }}</a></p>
+          {% if church.officeHours %}<p>{{ church.officeHours }}</p>{% endif %}
+        </div>
+      </div>
+      {%- endif %}
+      {%- if church.email %}
+      <div class="contact-card reveal">
+        <span class="feature-icon">{% icon "mail" %}</span>
+        <div>
+          <h3>Email</h3>
+          <p><a href="mailto:{{ church.email }}">{{ church.email }}</a></p>
+        </div>
+      </div>
+      {%- endif %}
+      <div class="contact-card reveal">
+        <span class="feature-icon">{% icon "clock" %}</span>
+        <div>
+          <h3>Worship With Us</h3>
+          {%- for s in church.services %}
+          <p>{% if s.name.indexOf(s.day) != 0 %}{{ s.day }} {% endif %}{{ s.name }}: <strong>{{ s.time }}</strong></p>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card reveal">
+      <h2>Send Us a Message</h2>
+      <p>Prayer requests are kept confidential and shared only with our pastor and prayer team.</p>
+      <form name="contact" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="company">
+        <input type="hidden" name="form-name" value="contact">
+        <p class="hp"><label>Leave this field empty <input name="company" tabindex="-1" autocomplete="off"></label></p>
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone <span class="optional">(optional)</span></label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="topic">How can we help?</label>
+          <select id="topic" name="topic">
+            <option>I have a question</option>
+            <option>Prayer request</option>
+            <option>I'm planning a visit</option>
+            <option>I'd like to get involved in a ministry</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button class="btn btn-primary btn-lg" type="submit">{% icon "mail" %}Send Message</button>
+        <p class="form-privacy">We will never share your information with anyone outside the church.</p>
+      </form>
+    </div>
+  </div>
+</section>

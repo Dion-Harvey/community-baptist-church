@@ -1,0 +1,57 @@
+{
+  "name": "Community Baptist Church of West Covina",
+  "shortName": "Community Baptist Church",
+  "subName": "of West Covina",
+  "tagline": "A loving church family, rooted in faith and serving our community",
+  "launched": false,
+  "url": "",
+  "address": {
+    "street": "3803 Dundry Ave",
+    "city": "Baldwin Park",
+    "state": "CA",
+    "zip": "91706"
+  },
+  "phone": "",
+  "email": "",
+  "officeHours": "",
+  "pastor": {
+    "name": "",
+    "title": "Senior Pastor",
+    "photo": "",
+    "welcome": [
+      "Grace and peace to you in the name of our Lord and Savior Jesus Christ.",
+      "Whether you are looking for a church home, returning after time away, or simply curious about the Lord, you are welcome here. Our doors are open, our hearts are open, and there is a seat with your name on it.",
+      "Come worship with us this Sunday. We would love to meet you."
+    ],
+    "bio": ""
+  },
+  "services": [
+    {
+      "day": "Sunday",
+      "name": "Sunday School",
+      "time": "9:30 AM",
+      "description": "Bible study classes for every age. Grow deeper in the Word together."
+    },
+    {
+      "day": "Sunday",
+      "name": "Morning Worship",
+      "time": "11:00 AM",
+      "description": "Uplifting praise, heartfelt prayer, and preaching from God's Word."
+    },
+    {
+      "day": "Wednesday",
+      "name": "Bible Study & Prayer",
+      "time": "7:00 PM",
+      "description": "Midweek encouragement, study, and prayer for every need."
+    }
+  ],
+  "mainService": {
+    "label": "Sunday Worship",
+    "time": "11:00 AM"
+  },
+  "serviceLength": "about an hour and a half",
+  "social": {
+    "facebook": "",
+    "youtube": ""
+  }
+}

@@ -1,0 +1,7 @@
+---
+permalink: /robots.txt
+eleventyExcludeFromCollections: true
+---
+User-agent: *
+{% if church.launched %}Allow: /
+{% if church.url %}Sitemap: {{ church.url }}/sitemap.xml{% endif %}{% else %}Disallow: /{% endif %}

@@ -1,0 +1,57 @@
+---
+layout: layouts/base.njk
+permalink: /events/
+title: Events
+description: "Weekly services and upcoming events at Community Baptist Church of West Covina in Baldwin Park, CA."
+hero:
+  eyebrow: Gather With Us
+  title: "Events & Gatherings"
+  intro: Our weekly worship schedule and special events coming up at Community Baptist Church.
+---
+<section class="section section-tight" aria-labelledby="weekly-heading">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Every Week</p>
+      <h2 id="weekly-heading" class="section-title">Weekly Schedule</h2>
+    </div>
+    {% include "partials/service-cards.njk" %}
+  </div>
+</section>
+
+<section class="section section-ivory" aria-labelledby="special-heading">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Coming Up</p>
+      <h2 id="special-heading" class="section-title">Special Events</h2>
+    </div>
+    {%- set upcomingEvents = events | upcoming %}
+    {%- if upcomingEvents.length %}
+    <div class="event-list">
+      {%- for e in upcomingEvents %}
+      {%- set parts = e.date.split("-") %}
+      <article class="event reveal">
+        <div class="event-date" aria-hidden="true">
+          <span class="m">{{ ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][parts[1] | int - 1] }}</span>
+          <span class="d">{{ parts[2] | int }}</span>
+        </div>
+        <div>
+          <h3>{{ e.title }}</h3>
+          <p class="event-meta">
+            <span>{% icon "calendar" %}{{ e.date | longDate }}</span>
+            {% if e.time %}<span>{% icon "clock" %}{{ e.time }}</span>{% endif %}
+            {% if e.location %}<span>{% icon "map-pin" %}{{ e.location }}</span>{% endif %}
+          </p>
+          {% if e.description %}<p>{{ e.description }}</p>{% endif %}
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+    {%- else %}
+    <div class="empty-state reveal">
+      <span class="feature-icon">{% icon "calendar" %}</span>
+      <h3>New events coming soon</h3>
+      <p>Special services, fellowship dinners, and community events will be posted here. Check back soon{% if church.phone %} or call the church office at <a href="{{ church.phone | telHref }}">{{ church.phone }}</a>{% endif %}.</p>
+    </div>
+    {%- endif %}
+  </div>
+</section>

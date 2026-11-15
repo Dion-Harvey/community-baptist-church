@@ -1,0 +1,96 @@
+---
+layout: layouts/base.njk
+permalink: /about/
+title: About Us
+description: "Learn about Community Baptist Church of West Covina: who we are, what we believe, and the pastor who shepherds our church family in Baldwin Park, CA."
+hero:
+  eyebrow: About Us
+  title: Who We Are
+  intro: A Bible-believing Baptist family, gathered to worship God, grow in His Word, and serve our neighbors.
+---
+{# TODO (church): Replace this section with the church's own history: founding year, founding pastor, milestones. #}
+<section class="section section-tight">
+  <div class="container split">
+    <div class="reveal">
+      <p class="eyebrow">Our Story</p>
+      <h2 class="section-title">Rooted in Faith, Growing in Love</h2>
+      <p class="lead-dark">Community Baptist Church of West Covina is a congregation of believers who love the Lord, love His Word, and love one another.</p>
+      <p>We gather at {{ church.address.street }} in {{ church.address.city }} to worship together, to pray for one another, and to carry the Gospel of Jesus Christ into our community. Many of our members have worshiped side by side for years, and we are always glad to welcome new faces into the family.</p>
+      <p>Our church is a place where the wisdom of our elders is honored, where children are taught the ways of the Lord, and where everyone who walks through our doors is treated like family.</p>
+    </div>
+    <div class="card-grid reveal" style="grid-template-columns: 1fr;">
+      <div class="info-card info-card-dark">
+        <h3>Our Mission</h3>
+        <p>To glorify God by sharing the Gospel of Jesus Christ, nurturing believers in the Word, and serving our community with compassion and love.</p>
+      </div>
+      <div class="info-card">
+        <h3>Our Vision</h3>
+        <p>To be a light in our community: a church where every person can find hope in Christ, a family to belong to, and a place to serve.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# TODO (pastor): Confirm or edit this statement of faith. #}
+<section class="section section-ivory" aria-labelledby="beliefs-heading">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Our Faith</p>
+      <h2 id="beliefs-heading" class="section-title">What We Believe</h2>
+      <p>As a Baptist church, we hold to these foundational truths of the Christian faith.</p>
+    </div>
+    <ul class="belief-list reveal">
+      <li><strong>The Holy Bible</strong><span>The Bible is the inspired, infallible Word of God and our guide for faith and life.</span></li>
+      <li><strong>One True God</strong><span>There is one God, eternally existing as Father, Son, and Holy Spirit.</span></li>
+      <li><strong>Jesus Christ</strong><span>Jesus is the Son of God, born of a virgin, who died for our sins, rose again, and is coming again.</span></li>
+      <li><strong>Salvation by Grace</strong><span>Salvation is the free gift of God, received by grace through faith in Jesus Christ alone.</span></li>
+      <li><strong>Believer's Baptism</strong><span>Baptism by immersion is a public testimony of faith, following the example of our Lord.</span></li>
+      <li><strong>The Lord's Supper</strong><span>We observe Communion in remembrance of Christ's sacrifice until He comes again.</span></li>
+      <li><strong>The Church</strong><span>The local church is a family of baptized believers, gathered to worship, grow, and serve.</span></li>
+      <li><strong>The Great Commission</strong><span>Every believer is called to share the Gospel and make disciples of all nations.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="pastor-heading">
+  <div class="container">
+    <div class="pastor-profile reveal">
+      <div class="pastor-photo">
+        {%- if church.pastor.photo %}
+        <img src="{{ church.pastor.photo }}" alt="{{ church.pastor.name or 'Our pastor' }}" width="240" height="240">
+        {%- else %}
+        {% emblem "pastor-emblem", "" %}
+        {%- endif %}
+      </div>
+      <div>
+        <p class="eyebrow">Meet Our Pastor</p>
+        <h2 id="pastor-heading">{{ church.pastor.name or "Our Pastor" }}</h2>
+        <p class="pastor-role">{{ church.pastor.title }}</p>
+        {%- if church.pastor.bio %}
+        <p>{{ church.pastor.bio }}</p>
+        {%- endif %}
+        {%- for line in church.pastor.welcome %}
+        <p>{{ line }}</p>
+        {%- endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="verse-band" aria-label="Scripture">
+  <div class="container reveal">
+    <p class="verse-text">&ldquo;Behold, how good and how pleasant it is for brethren to dwell together in unity!&rdquo;</p>
+    <cite class="verse-cite">Psalm 133:1</cite>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container center reveal">
+    <h2 class="section-title">We Would Love to Meet You</h2>
+    <p class="lead-dark" style="max-width: 46ch; margin-inline: auto;">The best way to get to know our church family is to worship with us. Come as you are.</p>
+    <div class="btn-row" style="margin-top: 1.8rem;">
+      <a class="btn btn-primary btn-lg" href="/visit/">Plan Your Visit{% icon "arrow-right" %}</a>
+      <a class="btn btn-outline btn-lg" href="/contact/">Contact Us</a>
+    </div>
+  </div>
+</section>

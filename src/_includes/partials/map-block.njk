@@ -1,0 +1,20 @@
+<div class="map-block reveal">
+  <div class="map-info">
+    <p class="eyebrow">Where We Gather</p>
+    <h3 class="map-title">Come Worship With Us</h3>
+    <address class="map-address">
+      {{ church.address.street }}<br>
+      {{ church.address.city }}, {{ church.address.state }} {{ church.address.zip }}
+    </address>
+    <ul class="map-times">
+      {%- for s in church.services %}
+      <li><span>{% if s.name.indexOf(s.day) != 0 %}{{ s.day }} {% endif %}{{ s.name }}</span><strong>{{ s.time }}</strong></li>
+      {%- endfor %}
+    </ul>
+    <div class="btn-row btn-row-left">
+      <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&destination={{ church.address | mapsQuery }}" target="_blank" rel="noopener">{% icon "map-pin" %}Get Directions</a>
+      {% if church.phone %}<a class="btn btn-outline" href="{{ church.phone | telHref }}">{% icon "phone" %}Call Us</a>{% endif %}
+    </div>
+  </div>
+  <iframe class="map-frame" title="Map showing {{ church.name }} at {{ church.address.street }}, {{ church.address.city }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q={{ church.address | mapsQuery }}&output=embed"></iframe>
+</div>

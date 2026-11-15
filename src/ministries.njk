@@ -1,0 +1,37 @@
+---
+layout: layouts/base.njk
+permalink: /ministries/
+title: Ministries
+description: "Explore the ministries of Community Baptist Church of West Covina: music, prayer, Christian education, outreach, seniors, and family and youth."
+hero:
+  eyebrow: Serving Together
+  title: Our Ministries
+  intro: God has given each of us gifts to serve one another. There is a place for you to belong and to serve.
+---
+<section class="section section-tight">
+  <div class="container">
+    <div class="ministry-list">
+      {%- for m in ministries %}
+      <article class="ministry-detail reveal" id="{{ m.name | slugify }}">
+        <span class="ministry-icon">{% icon m.icon %}</span>
+        <div>
+          <h2>{{ m.name }}</h2>
+          <p class="summary">{{ m.summary }}</p>
+          <p>{{ m.details }}</p>
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-ivory">
+  <div class="container center reveal">
+    <p class="eyebrow">Get Involved</p>
+    <h2 class="section-title">Find Your Place to Serve</h2>
+    <p class="lead-dark" style="max-width: 50ch; margin-inline: auto;">Interested in joining a ministry? Reach out and we will help you get connected.</p>
+    <div class="btn-row" style="margin-top: 1.8rem;">
+      <a class="btn btn-primary btn-lg" href="/contact/">Contact the Church{% icon "arrow-right" %}</a>
+    </div>
+  </div>
+</section>

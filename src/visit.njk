@@ -1,0 +1,69 @@
+---
+layout: layouts/base.njk
+permalink: /visit/
+title: Plan Your Visit
+description: "Planning a visit to Community Baptist Church of West Covina? Find service times, directions to 3803 Dundry Ave in Baldwin Park, and what to expect on Sunday."
+hero:
+  eyebrow: We Saved You a Seat
+  title: Plan Your Visit
+  intro: Everything you need to know before your first Sunday with us. We can't wait to meet you.
+---
+<section class="section section-tight" aria-labelledby="times-heading">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Join Us</p>
+      <h2 id="times-heading" class="section-title">Service Times</h2>
+    </div>
+    {% include "partials/service-cards.njk" %}
+  </div>
+</section>
+
+<section class="section section-ivory" aria-labelledby="faq-heading">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Your First Visit</p>
+      <h2 id="faq-heading" class="section-title">What to Expect</h2>
+      <p>Here are answers to the questions first-time guests ask most.</p>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item reveal">
+        <h3>{% icon "clock" %}How long is the service?</h3>
+        <p>Sunday Morning Worship usually lasts {{ church.serviceLength }}. You are welcome to arrive a few minutes early to settle in and say hello.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>{% icon "shirt" %}What should I wear?</h3>
+        <p>Come as you are. Some members dress up for church and some dress casually. What matters most is that you are here.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>{% icon "music" %}What is worship like?</h3>
+        <p>Our services include hymns and gospel music, prayer, Scripture reading, and a sermon from God's Word. You are welcome to sing along or simply listen.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>{% icon "smile" %}Will I be singled out?</h3>
+        <p>Never. Our greeters will welcome you warmly, but you will not be asked to stand up or speak. Relax and enjoy the service.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>{% icon "sprout" %}Can I bring my children?</h3>
+        <p>Absolutely. Children are a blessing and are always welcome in our services and in Sunday School.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>{% icon "accessibility" %}Is the building accessible?</h3>
+        <p>Yes. Our building is wheelchair accessible, and friendly greeters are always ready to help you find your way and a comfortable seat.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>{% icon "car" %}Where do I park?</h3>
+        <p>Parking is available at the church and on the surrounding streets. If you need help getting from your car to the door, just let a greeter know.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>{% icon "heart" %}Am I expected to give?</h3>
+        <p>Not at all. As our guest, please don't feel any pressure to give. We are simply glad you came.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-label="Location and directions">
+  <div class="container">
+    {% include "partials/map-block.njk" %}
+  </div>
+</section>

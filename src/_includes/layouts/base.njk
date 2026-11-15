@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% set pageTitle = (title + " | " + church.name) if title else (church.name + " | Baldwin Park, CA") %}
+{% set pageDescription = description or church.tagline %}
+<title>{{ pageTitle }}</title>
+<meta name="description" content="{{ pageDescription }}">
+{% if not church.launched %}<meta name="robots" content="noindex, nofollow">{% endif %}
+{% if church.url %}<link rel="canonical" href="{{ church.url }}{{ page.url }}">{% endif %}
+<meta property="og:title" content="{{ pageTitle }}">
+<meta property="og:description" content="{{ pageDescription }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ church.name }}">
+<meta name="theme-color" content="#5e1a24">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preload" as="image" href="/assets/img/emblem-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/styles.css">
+<script>document.documentElement.classList.add("js");try{var s=localStorage.getItem("cbc-text-size");if(s)document.documentElement.dataset.textsize=s}catch(e){}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Church",
+  "name": {{ church.name | dump | safe }},
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": {{ church.address.street | dump | safe }},
+    "addressLocality": {{ church.address.city | dump | safe }},
+    "addressRegion": {{ church.address.state | dump | safe }},
+    "postalCode": {{ church.address.zip | dump | safe }},
+    "addressCountry": "US"
+  }{% if church.phone %},
+  "telephone": {{ church.phone | dump | safe }}{% endif %}{% if church.url %},
+  "url": {{ church.url | dump | safe }}{% endif %}
+}
+</script>
+</head>
+<body class="{{ bodyClass or '' }}">
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<div class="topbar">
+  <div class="container topbar-inner">
+    <p class="topbar-info">
+      <span class="topbar-item">{% icon "clock" %}{{ church.mainService.label }} · {{ church.mainService.time }}</span>
+      <span class="topbar-item topbar-address">{% icon "map-pin" %}{{ church.address.street }}, {{ church.address.city }}</span>
+    </p>
+    <div class="textsize" role="group" aria-label="Text size">
+      <span class="textsize-label">Text size</span>
+      <button type="button" class="textsize-btn" data-size="" aria-pressed="true" aria-label="Normal text size">A</button>
+      <button type="button" class="textsize-btn textsize-lg" data-size="lg" aria-pressed="false" aria-label="Large text size">A</button>
+      <button type="button" class="textsize-btn textsize-xl" data-size="xl" aria-pressed="false" aria-label="Largest text size">A</button>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="{{ church.name }} home">
+      {% emblem "brand-emblem", "" %}
+      <span class="brand-text">
+        <span class="brand-name">{{ church.shortName }}</span>
+        <span class="brand-sub">{{ church.subName }}</span>
+      </span>
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      <ul>
+        {%- for item in nav %}
+        <li><a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+        {%- endfor %}
+      </ul>
+      <a class="btn btn-nav-cta" href="/visit/"{% if page.url == "/visit/" %} aria-current="page"{% endif %}>{% icon "map-pin" %}Plan Your Visit</a>
+    </nav>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="menu-icon-open">{% icon "menu" %}</span>
+      <span class="menu-icon-close">{% icon "x" %}</span>
+      <span class="menu-label">Menu</span>
+    </button>
+  </div>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+    <ul>
+      {%- for item in nav %}
+      <li><a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+      {%- endfor %}
+    </ul>
+    <a class="btn btn-gold btn-block" href="/visit/">{% icon "map-pin" %}Plan Your Visit</a>
+    {% if church.phone %}<a class="mobile-call" href="{{ church.phone | telHref }}">{% icon "phone" %}Call {{ church.phone }}</a>{% endif %}
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+  {% if hero %}
+  <section class="page-hero">
+    <div class="page-hero-glow" aria-hidden="true"></div>
+    <div class="container page-hero-inner">
+      <p class="eyebrow eyebrow-light">{{ hero.eyebrow }}</p>
+      <h1>{{ hero.title }}</h1>
+      {% if hero.intro %}<p class="lead">{{ hero.intro }}</p>{% endif %}
+      {% if hero.cite %}<cite class="verse-cite hero-cite">{{ hero.cite }}</cite>{% endif %}
+    </div>
+  </section>
+  {% endif %}
+  {{ content | safe }}
+</main>
+
+<footer class="site-footer">
+  <div class="footer-verse">
+    <div class="container">
+      <p>&ldquo;The Lord bless thee, and keep thee: the Lord make his face shine upon thee, and be gracious unto thee.&rdquo;</p>
+      <cite>Numbers 6:24&ndash;25</cite>
+    </div>
+  </div>
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      {% emblem "footer-emblem", "" %}
+      <p class="footer-name">{{ church.shortName }}<span>{{ church.subName }}</span></p>
+      <p class="footer-tagline">{{ church.tagline }}</p>
+    </div>
+    <div>
+      <h2 class="footer-heading">Visit Us</h2>
+      <address>
+        {{ church.address.street }}<br>
+        {{ church.address.city }}, {{ church.address.state }} {{ church.address.zip }}
+      </address>
+      {% if church.phone %}<p><a href="{{ church.phone | telHref }}">{{ church.phone }}</a></p>{% endif %}
+      {% if church.email %}<p><a href="mailto:{{ church.email }}">{{ church.email }}</a></p>{% endif %}
+      <p><a class="footer-link-strong" href="https://www.google.com/maps/dir/?api=1&destination={{ church.address | mapsQuery }}" target="_blank" rel="noopener">Get directions{% icon "arrow-right" %}</a></p>
+    </div>
+    <div>
+      <h2 class="footer-heading">Service Times</h2>
+      <ul class="footer-services">
+        {%- for s in church.services %}
+        <li><span>{% if s.name.indexOf(s.day) != 0 %}{{ s.day }} {% endif %}{{ s.name }}</span><strong>{{ s.time }}</strong></li>
+        {%- endfor %}
+      </ul>
+    </div>
+    <div>
+      <h2 class="footer-heading">Explore</h2>
+      <ul class="footer-links">
+        {%- for item in nav %}
+        <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+        {%- endfor %}
+        <li><a href="/visit/">Plan Your Visit</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>&copy; {% year %} {{ church.name }}. All rights reserved.</p>
+    <p>A 501(c)(3) nonprofit organization.</p>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+---
+layout: layouts/base.njk
+permalink: /staff/
+title: Our Pastor & Staff
+description: "Meet the pastor, ministers, and staff who serve Community Baptist Church of West Covina in Baldwin Park, CA."
+hero:
+  eyebrow: Serving With Joy
+  title: "Our Pastor & Staff"
+  intro: Meet the men and women God has called to shepherd, serve, and care for our church family.
+---
+<section class="section section-tight" aria-labelledby="pastor-heading">
+  <div class="container">
+    <div class="pastor-profile reveal">
+      <div class="pastor-photo">
+        {%- if church.pastor.photo %}
+        <img src="{{ church.pastor.photo }}" alt="{{ church.pastor.name or 'Our pastor' }}" width="240" height="240">
+        {%- else %}
+        {% emblem "pastor-emblem", "" %}
+        {%- endif %}
+      </div>
+      <div>
+        <p class="eyebrow">Our Shepherd</p>
+        <h2 id="pastor-heading">{{ church.pastor.name or "Our Pastor" }}</h2>
+        <p class="pastor-role">{{ church.pastor.title }}</p>
+        {%- if church.pastor.bio %}
+        <p>{{ church.pastor.bio }}</p>
+        {%- else %}
+        <p>{{ church.pastor.welcome[1] }}</p>
+        {%- endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-ivory" aria-labelledby="team-heading">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Ministry Leaders</p>
+      <h2 id="team-heading" class="section-title">Serving Our Church Family</h2>
+      <p>These faithful servants lead our ministries and keep our church running with love and care.</p>
+    </div>
+    <div class="staff-grid">
+      {%- for person in staff %}
+      <article class="staff-card reveal">
+        <div class="staff-photo">
+          {%- if person.photo %}
+          <img src="{{ person.photo }}" alt="{{ person.name or person.role }}" loading="lazy" width="400" height="500">
+          {%- else %}
+          <div class="staff-photo-placeholder">
+            {% emblem "staff-emblem", "" %}
+            <span>Photo coming soon</span>
+          </div>
+          {%- endif %}
+        </div>
+        <div class="staff-info">
+          <p class="staff-role">{{ person.role }}</p>
+          <h3>{{ person.name or "Name coming soon" }}</h3>
+          {% if person.bio %}<p class="staff-bio">{{ person.bio }}</p>{% endif %}
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container center reveal">
+    <h2 class="section-title">Come Meet Us in Person</h2>
+    <p class="lead-dark" style="max-width: 46ch; margin-inline: auto;">Our pastor and staff would love to welcome you this Sunday.</p>
+    <div class="btn-row" style="margin-top: 1.8rem;">
+      <a class="btn btn-primary btn-lg" href="/visit/">Plan Your Visit{% icon "arrow-right" %}</a>
+      <a class="btn btn-outline btn-lg" href="/contact/">Contact Us</a>
+    </div>
+  </div>
+</section>

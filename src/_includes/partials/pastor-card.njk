@@ -1,0 +1,13 @@
+<figure class="pastor-card">
+  <div class="pastor-photo">
+    {%- if church.pastor.photo %}
+    <img src="{{ church.pastor.photo }}" alt="{{ church.pastor.name or 'Our pastor' }}" width="160" height="160">
+    {%- else %}
+    {% emblem "pastor-emblem", "" %}
+    {%- endif %}
+  </div>
+  <figcaption>
+    <strong>{{ church.pastor.name or "Our Pastor" }}</strong>
+    <span>{{ church.pastor.title }}</span>
+  </figcaption>
+</figure>

@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Music & Praise",
+    "icon": "music",
+    "summary": "Lifting our voices in song, from beloved hymns to gospel praise that stirs the soul.",
+    "details": "Our choir and musicians lead the congregation in worship every Sunday. If the Lord has given you a voice or an instrument, there is a place for you here."
+  },
+  {
+    "name": "Prayer Ministry",
+    "icon": "heart",
+    "summary": "Standing in the gap for our church, our families, and our community through faithful prayer.",
+    "details": "Our prayer warriors lift up every request shared with the church. You can send a prayer request through our contact page at any time, and it will be prayed over with care."
+  },
+  {
+    "name": "Christian Education",
+    "icon": "book-open",
+    "summary": "Sunday School and Bible study for every age, building lives on the foundation of Scripture.",
+    "details": "Classes meet before Sunday worship, and Bible study meets midweek. Come ready to learn, ask questions, and grow in the knowledge of God's Word."
+  },
+  {
+    "name": "Outreach & Missions",
+    "icon": "globe",
+    "summary": "Sharing the love of Christ beyond our walls through community service and missions support.",
+    "details": "We serve our neighbors in Baldwin Park, West Covina, and beyond, and we support missions that carry the Gospel around the world."
+  },
+  {
+    "name": "Seniors' Fellowship",
+    "icon": "users",
+    "summary": "Honoring our seasoned saints with fellowship, encouragement, and care for one another.",
+    "details": "Our seniors are the heart of this church. We gather for fellowship, check in on one another, and make sure no one is forgotten."
+  },
+  {
+    "name": "Family & Youth",
+    "icon": "sprout",
+    "summary": "Helping the next generation know and love the Lord, and strengthening families in faith.",
+    "details": "Children and young people are always welcome. We teach them the Word, pray over them, and walk alongside their families."
+  }
+]

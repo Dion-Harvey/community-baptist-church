@@ -1,0 +1,10 @@
+<div class="service-grid">
+  {%- for s in church.services %}
+  <article class="service-card reveal">
+    <p class="service-day">{{ s.day }}</p>
+    <h3>{{ s.name }}</h3>
+    <p class="service-time">{{ s.time }}</p>
+    <p class="service-desc">{{ s.description }}</p>
+  </article>
+  {%- endfor %}
+</div>

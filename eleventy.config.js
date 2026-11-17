@@ -1,5 +1,14 @@
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
 import { renderIcon } from "./lib/icons.js";
 import { emblem } from "./lib/emblem.js";
+
+// Adds ?v=<content hash> to an asset URL so browsers fetch the new file
+// whenever it changes, despite the long cache time in netlify.toml.
+function versioned(url) {
+  const hash = createHash("sha1").update(readFileSync("src" + url)).digest("hex").slice(0, 10);
+  return `${url}?v=${hash}`;
+}
 
 const LAUNCH_FIELDS = [
   ["url", "Website address (url)"],
@@ -20,6 +29,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addShortcode("emblem", (className, label, sizes) => emblem(className, label, sizes));
   eleventyConfig.addShortcode("year", () => String(new Date().getFullYear()));
 
+  eleventyConfig.addFilter("v", versioned);
   eleventyConfig.addFilter("telHref", (phone) => "tel:" + String(phone || "").replace(/[^\d+]/g, ""));
   eleventyConfig.addFilter("mapsQuery", (a) => encodeURIComponent(`${a.street}, ${a.city}, ${a.state} ${a.zip}`));
   eleventyConfig.addFilter("upcoming", (events) => {

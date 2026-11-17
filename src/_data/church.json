@@ -29,25 +29,25 @@
     {
       "day": "Sunday",
       "name": "Sunday School",
-      "time": "9:30 AM",
+      "time": "9:00 AM",
       "description": "Bible study classes for every age. Grow deeper in the Word together."
     },
     {
       "day": "Sunday",
       "name": "Morning Worship",
-      "time": "11:00 AM",
+      "time": "10:45 AM",
       "description": "Uplifting praise, heartfelt prayer, and preaching from God's Word."
     },
     {
       "day": "Wednesday",
       "name": "Bible Study & Prayer",
-      "time": "7:00 PM",
+      "time": "5:00 PM",
       "description": "Midweek encouragement, study, and prayer for every need."
     }
   ],
   "mainService": {
     "label": "Sunday Worship",
-    "time": "11:00 AM"
+    "time": "10:45 AM"
   },
   "serviceLength": "about an hour and a half",
   "social": {

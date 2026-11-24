@@ -5,6 +5,16 @@
     <h3>{{ s.name }}</h3>
     <p class="service-time">{{ s.time }}</p>
     <p class="service-desc">{{ s.description }}</p>
+    {%- if s.callIn %}
+    <div class="service-callin">
+      <p class="callin-label">{% icon "phone" %}Listen by phone</p>
+      <a class="callin-number" href="{{ s.callIn | callInHref }}" aria-label="Call in to {{ s.name }} at {{ s.callIn.number }}{% if s.callIn.code %}, access code {{ s.callIn.code }}{% endif %}">{{ s.callIn.number }}</a>
+      {%- if s.callIn.code %}
+      <p class="callin-code">Access code <strong>{{ s.callIn.code }}</strong></p>
+      {%- endif %}
+    </div>
+    {%- endif %}
   </article>
   {%- endfor %}
 </div>
+<p class="callin-note reveal">{% icon "phone" %}Can&rsquo;t make it in? Call the number on any service above to listen live from home.</p>

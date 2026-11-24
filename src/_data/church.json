@@ -30,19 +30,22 @@
       "day": "Sunday",
       "name": "Sunday School",
       "time": "9:00 AM",
-      "description": "Bible study classes for every age. Grow deeper in the Word together."
+      "description": "Bible study classes for every age. Grow deeper in the Word together.",
+      "callIn": { "number": "(520) 525-8252" }
     },
     {
       "day": "Sunday",
       "name": "Morning Worship",
       "time": "10:45 AM",
-      "description": "Uplifting praise, heartfelt prayer, and preaching from God's Word."
+      "description": "Uplifting praise, heartfelt prayer, and preaching from God's Word.",
+      "callIn": { "number": "(520) 525-8252" }
     },
     {
       "day": "Wednesday",
       "name": "Bible Study & Prayer",
       "time": "5:00 PM",
-      "description": "Midweek encouragement, study, and prayer for every need."
+      "description": "Midweek encouragement, study, and prayer for every need.",
+      "callIn": { "number": "(701) 802-5349", "code": "4777074#" }
     }
   ],
   "mainService": {

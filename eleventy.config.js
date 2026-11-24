@@ -31,6 +31,12 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter("v", versioned);
   eleventyConfig.addFilter("telHref", (phone) => "tel:" + String(phone || "").replace(/[^\d+]/g, ""));
+  // One-tap dial-in link: the commas make the phone pause, then it enters the access code.
+  eleventyConfig.addFilter("callInHref", (c) => {
+    const digits = String(c.number).replace(/\D/g, "");
+    const code = c.code ? ",," + encodeURIComponent(c.code) : "";
+    return `tel:+1${digits}${code}`;
+  });
   eleventyConfig.addFilter("mapsQuery", (a) => encodeURIComponent(`${a.street}, ${a.city}, ${a.state} ${a.zip}`));
   eleventyConfig.addFilter("upcoming", (events) => {
     const today = new Date().toISOString().slice(0, 10);

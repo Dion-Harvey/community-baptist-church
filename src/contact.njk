@@ -47,6 +47,15 @@ hero:
           {%- endfor %}
         </div>
       </div>
+      <div class="contact-card reveal">
+        <span class="feature-icon">{% icon "phone" %}</span>
+        <div>
+          <h3>Listen by Phone</h3>
+          {%- for s in church.services %}{% if s.callIn %}
+          <p>{% if s.name.indexOf(s.day) != 0 %}{{ s.day }} {% endif %}{{ s.name }}: <a href="{{ s.callIn | callInHref }}">{{ s.callIn.number }}</a>{% if s.callIn.code %}, access code <strong>{{ s.callIn.code }}</strong>{% endif %}</p>
+          {%- endif %}{% endfor %}
+        </div>
+      </div>
     </div>
 
     <div class="form-card reveal">

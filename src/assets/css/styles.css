@@ -291,6 +291,26 @@ main:focus { outline: none; }
 .service-card h3 { font-size: 1.45rem; color: var(--royal); margin: 0.4rem 0 0.3rem; }
 .service-time { font-family: var(--font-head); font-size: 2.3rem; font-weight: 700; color: var(--ink); line-height: 1.2; margin-bottom: 0.6rem; }
 .service-desc { color: var(--ink-soft); font-size: 1.08rem; }
+.service-card { display: flex; flex-direction: column; }
+.service-callin {
+  margin-top: auto; padding-top: 1.2rem; border-top: 1px solid var(--line);
+  margin-left: -0.4rem; margin-right: -0.4rem;
+}
+.service-card .service-desc { margin-bottom: 1.2rem; }
+.callin-label {
+  display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-text);
+}
+.callin-label svg { width: 1.05em; height: 1.05em; }
+.callin-number {
+  display: block; font-size: 1.45rem; font-weight: 600; color: var(--royal);
+  text-decoration: none; margin-top: 0.15rem; white-space: nowrap;
+}
+.callin-number:hover, .callin-number:focus-visible { text-decoration: underline; }
+.callin-code { color: var(--ink); font-size: 1.08rem; margin-top: 0.15rem; }
+a[href^="tel:"] { white-space: nowrap; }
+.callin-note { margin-top: 1.5rem; text-align: center; color: var(--ink-soft); font-size: 1.08rem; }
+.callin-note svg { display: inline-block; width: 1.1em; height: 1.1em; color: var(--gold-text); vertical-align: -0.18em; margin-right: 0.4rem; }
 
 /* Split / welcome */
 .split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; }

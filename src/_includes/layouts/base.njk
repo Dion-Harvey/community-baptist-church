@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ '/assets/css/styles.css' | v }}">
-<script>document.documentElement.classList.add("js");try{var s=localStorage.getItem("cbc-text-size");if(s)document.documentElement.dataset.textsize=s}catch(e){}</script>
+<script>document.documentElement.classList.add("js")</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -49,12 +49,6 @@
       <span class="topbar-item">{% icon "clock" %}{{ church.mainService.label }} · {{ church.mainService.time }}</span>
       <span class="topbar-item topbar-address">{% icon "map-pin" %}{{ church.address.street }}, {{ church.address.city }}</span>
     </p>
-    <div class="textsize" role="group" aria-label="Text size">
-      <span class="textsize-label">Text size</span>
-      <button type="button" class="textsize-btn" data-size="" aria-pressed="true" aria-label="Normal text size">A</button>
-      <button type="button" class="textsize-btn textsize-lg" data-size="lg" aria-pressed="false" aria-label="Large text size">A</button>
-      <button type="button" class="textsize-btn textsize-xl" data-size="xl" aria-pressed="false" aria-label="Largest text size">A</button>
-    </div>
   </div>
 </div>
 

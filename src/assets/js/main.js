@@ -1,21 +1,4 @@
 (function () {
-  var root = document.documentElement;
-
-  // Text size control (remembered between visits).
-  var sizeButtons = document.querySelectorAll(".textsize-btn");
-  function applySize(size) {
-    if (size) root.dataset.textsize = size;
-    else delete root.dataset.textsize;
-    sizeButtons.forEach(function (btn) {
-      btn.setAttribute("aria-pressed", String(btn.dataset.size === (size || "")));
-    });
-    try { localStorage.setItem("cbc-text-size", size || ""); } catch (e) {}
-  }
-  applySize(root.dataset.textsize || "");
-  sizeButtons.forEach(function (btn) {
-    btn.addEventListener("click", function () { applySize(btn.dataset.size); });
-  });
-
   // Mobile menu.
   var header = document.querySelector(".site-header");
   var toggle = document.querySelector(".menu-toggle");
